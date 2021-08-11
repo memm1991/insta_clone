@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'insta_clone.middleware.ProfileCompletionMiddleware',
 ]
 
 ROOT_URLCONF = 'insta_clone.urls'
