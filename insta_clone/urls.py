@@ -3,13 +3,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from users import views as users_views
+
+
 
 
 
 
 from insta_clone import views as local_views
 from posts import views as posts_views
+from users import views as users_views
 
 
 urlpatterns = [
@@ -18,8 +20,12 @@ urlpatterns = [
     path('query/',local_views.query),
     path('params/<str:name>/<int:age>',local_views.params),
     #posts path
-    path('posts/', posts_views.list_posts),
+    path('posts/', posts_views.list_posts,name='feed'),
     #users path
-    path('users/login', users_views),
+    path('users/login', users_views.login_view,name='login'),
+    path('users/logout/', users_views.logout_view, name='logout'),
+    path('users/signup/', users_views.signup, name='signup'),
+    path('users/me/profile/', users_views.update_profile, name='update_profile'),
+    
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
