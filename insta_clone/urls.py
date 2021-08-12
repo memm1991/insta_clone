@@ -20,7 +20,8 @@ urlpatterns = [
     path('query/',local_views.query),
     path('params/<str:name>/<int:age>',local_views.params),
     #posts path
-    path('posts/', posts_views.list_posts,name='feed'),
+    path('', posts_views.list_posts,name='feed'),
+     path('posts/new/', posts_views.create_post, name='create_post'),
     #users path
     path('users/login', users_views.login_view,name='login'),
     path('users/logout/', users_views.logout_view, name='logout'),
